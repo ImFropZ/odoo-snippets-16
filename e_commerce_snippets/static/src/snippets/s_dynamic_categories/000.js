@@ -54,8 +54,6 @@ odoo.define("website.dynamic_snippet_categories", function (require) {
      * @private
      */
     _render: function () {
-      console.log(this.data);
-
       this.el.querySelector(".dynamic_cateogories_container").innerHTML =
         QWeb.render("e_commerce_snippets.CatagoryContainer", {
           categories: this.data,

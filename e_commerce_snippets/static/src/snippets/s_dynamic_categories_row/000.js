@@ -71,24 +71,8 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      * @override
      */
     start: function () {
-      console.log(this.data);
       return this._super.apply(this, arguments).then(() => {
         this._render();
-
-        // const moveBackBtn = this.el.querySelector(
-        //   ".dynamic-category-row-products__moveBack"
-        // );
-        // const moveFrontBtn = this.el.querySelector(
-        //   ".dynamic-category-row-products__moveFront"
-        // );
-
-        // moveBackBtn.on("click", function () {
-
-        // });
-
-        // moveFrontBtn.on("click", function () {
-
-        // });
       });
     },
 
