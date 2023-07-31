@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="e_commerce_snippets" name="Custom Snippets" inherit_id="website.snippets"
+        priority="8">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="e_commerce_snippets.dynamic_categories_snippet"
+                t-thumbnail="/e_commerce_snippets/static/src/img/snippets_thumbs/s_dynamic_categories.svg" />
+            <t t-snippet="e_commerce_snippets.dynamic_categories_row_snippet"
+                t-thumbnail="/e_commerce_snippets/static/src/img/snippets_thumbs/s_dynamic_category_row.svg" />
+        </xpath>
+    </template>
+</odoo>

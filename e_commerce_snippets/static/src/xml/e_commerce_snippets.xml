@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template xml:space="preserve">
+    <t t-name="e_commerce_snippets.CatagoryContainer">
+        <t t-foreach="categories" t-as="category">
+            <div class="s_col_no_bgcolor pt16 pb16 col-lg-2">
+                <a t-att-href="category['website_url']">
+                    <div class="card text-bg-white h-100" style="text-align: center;">
+                        <t t-if="category.image">
+                            <img t-attf-src="data:image/jpeg;base64,{{category.image}}" t-att-alt="category['name']" class="card-img-top img img-fluid o_we_custom_image" loading="lazy"></img>
+                        </t>
+                        <t t-else="">
+                            <img t-attf-src="https://dummyimage.com/128x128/f8f6f7/f8f6f7" class="card-img-top img img-fluid o_we_custom_image" t-att-alt="category['name']"/>
+                        </t>
+                        <span style="font-size: medium;"><t t-esc="category['name']"/></span>
+                    </div>
+                </a>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="e_commerce_snippets.CategoryRow">
+        <t t-foreach="categoryRows" t-as="categoryRow">
+        <t t-if="(categoryRow.products).length > 0">
+            <div class="dynamic-category-row-container">
+                <h3 class="dynamic-category-row-category">
+                    <t t-esc="categoryRow.category_name"/> <a t-attf-href="/shop/category/{{categoryRow.category_id}}" class="see-more"><span>see more</span></a>
+                </h3>
+                <div class="dynamic-category-row-products">
+                    <span class="dynamic-category-row-products__moveBack" data-scroll-left="">
+                        <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.4289 30.9071C22.092 31.3683 23 30.8939 23 30.0862L23 1.91382C23 1.10613 22.092 0.631671 21.4289 1.09291L1.18005 15.1791C0.608138 15.5769 0.608137 16.4231 1.18005 16.8209L21.4289 30.9071Z"
+                                fill="#555" />
+                        </svg>
+                    </span>
+                    <span class="dynamic-category-row-products__moveFront" data-scroll-right="">
+                        <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.57107 30.9071C0.908029 31.3683 0 30.8939 0 30.0862L0 1.91382C0 1.10613 0.908028 0.631671 1.57106 1.09291L21.8199 15.1791C22.3919 15.5769 22.3919 16.4231 21.8199 16.8209L1.57107 30.9071Z"
+                                fill="#555" />
+                        </svg>
+                    </span>
+                    <div class="dynamic-category-row-productsContainer">
+                        <t t-foreach="categoryRow.products" t-as="product">
+                            <t t-call="e_commerce_snippets.ProductCard"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+        </t>
+    </t>
+
+    <t t-name="e_commerce_snippets.ProductCard">
+        <a t-att-href="product.website_url">
+            <div class="dynamic-category-row-productCard">
+                <t t-if="product.image">
+                    <img t-attf-src="data:image/jpeg;base64,{{product.image}}" class="dynamic-category-row-productCard__image" t-att-alt="product.name"/>
+                </t>
+                <t t-else="">
+                    <img
+                        src="https://dummyimage.com/200x200/f8f6f7/f8f6f7"
+                        alt=""
+                        class="dynamic-category-row-productCard__image"
+                    />
+                </t>
+                <h4 class="dynamic-category-row-productCard__name"><t t-esc="product.name"/></h4>
+                <div class="dynamic-category-row-productCard__price">
+                <span class="dynamic-category-row-currency">$</span><span class="dynamic-category-row-priceTag"><t t-esc="product.list_price"/></span>
+                </div>
+            </div>
+        </a>
+    </t>
+</template>

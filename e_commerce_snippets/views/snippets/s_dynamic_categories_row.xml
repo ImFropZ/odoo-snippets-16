@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dynamic_categories_row_snippet" name="Dynamic Categories Row">
+        <section class="container dynamic_snippet_categories_row" data-category-names="">
+            <div class="container">
+                <div class="dynamic_cateogories_row_container">
+                    <div class="text-center py-5">
+                        <h2 class="h1">Products Each Row From E-Commerce</h2>
+                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                            publishing industries for <br />previewing layouts and visual mockups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_row_000_js" model="ir.asset">
+        <field name="name">Dynamic Categories Row 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories_row/000.js</field>
+    </record>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_row_000_scss" model="ir.asset">
+        <field name="name">Dynamic Categories Row 000 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories_row/000.scss</field>
+    </record>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_row_options" model="ir.asset">
+        <field name="name">Dynamic Categories Row Options</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories_row/options.js</field>
+    </record>
+</odoo>

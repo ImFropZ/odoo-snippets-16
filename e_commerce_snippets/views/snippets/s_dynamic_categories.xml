@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dynamic_categories_snippet" name="Dynamic Categories">
+        <section class="container dynamic_snippet_categories" data-category-names="">
+            <div class="container">
+                <div class="dynamic_cateogories_container">
+                    <div class="text-center py-5">
+                        <h2 class="h1">Categories From E-Commerce</h2>
+                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                            publishing industries for <br />previewing layouts and visual mockups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="dynamic_categories_snippet_options" inherit_id="website.snippet_options"
+        name="Dynamic Categories Snippet Options">
+        <xpath expr="." position="inside">
+            <div data-js="DynamicCategoriesOptions" data-selector=".dynamic_snippet_categories"
+                data-no-preview="true">
+                <we-input string="Label" class="o_we_large"
+                    data-name="dynamic_category_label_opt"
+                    data-attribute-name="label" data-no-preview="true"
+                    data-select-data-attribute=""
+                    placeholder="e.g. Category"
+                    title="Put your label here" />
+                <we-input string="Filter-Out category names" class="o_we_large"
+                    data-name="category_names_opt"
+                    data-attribute-name="categoryNames" data-no-preview="true"
+                    data-select-data-attribute=""
+                    placeholder="e.g. desk, boxes"
+                    title="Comma-separated list of parts of category names" />
+            </div>
+        </xpath>
+    </template>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_000_js" model="ir.asset">
+        <field name="name">Dynamic Categories 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories/000.js</field>
+    </record>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_000_scss" model="ir.asset">
+        <field name="name">Dynamic Categories 000 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories/000.scss</field>
+    </record>
+
+    <record id="e_commerce_snippets.s_dynamic_categories_options" model="ir.asset">
+        <field name="name">Dynamic Categories Options</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories/options.js</field>
+    </record>
+</odoo>
