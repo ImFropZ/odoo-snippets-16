@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_slides_snippets" name="Website Slide Snippets"
+        inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="website_slides_snippets.dynamic_slides_snippet"
+                t-thumbnail="/website_slides_snippets/static/src/img/snippets_thumbs/s_dynamic_slides.svg" />
+        </xpath>
+    </template>
+</odoo>

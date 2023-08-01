@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template xml:space="preserve">
+    <t t-name="website_slides_snippets.WebsiteSlides">
+        <t t-foreach="slides" t-as="slide">
+            <div class="item">
+                <a t-attf-href="/slides/{{slide['id']}}" style="text-decoration: none; color: black;">
+                    <div class="border">
+                        <t t-if="slide.image">
+                            <img t-attf-src="data:image/jpeg;base64,{{slide['image']}}" t-att-alt="slide['name']" class="position-relative card-img-top img img-fluid o_we_custom_image" loading="lazy" style="width: 100%; aspect-ratio: 1 / 1;"></img>
+                        </t>
+                        <t t-else="">
+                            <img t-attf-src="https://dummyimage.com/128x128/f8f6f7/f8f6f7" class="card-img-top img img-fluid o_we_custom_image" t-att-alt="slide['name']"/>
+                        </t>
+                        <div class="text"><t t-esc="slide['name']"/></div>
+                    </div>
+                </a>
+            </div>
+        </t>
+    </t>
+</template>

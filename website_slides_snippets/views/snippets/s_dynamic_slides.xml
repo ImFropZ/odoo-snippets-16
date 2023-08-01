@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dynamic_slides_snippet" name="Dynamic Slides">
+        <section class="container dynamic_snippet_slides">
+            <div class="container">
+                <div id="dynamic_slides_container">
+                    <div class="text-center py-5">
+                        <h2 class="h1">Course From Website Slides</h2>
+                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                            publishing industries for <br />previewing layouts and visual mockups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <record id="website_slides_snippets.s_dynamic_slides_000_js" model="ir.asset">
+        <field name="name">Dynamic Slides 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_slides_snippets/static/src/snippets/s_dynamic_slides/000.js</field>
+    </record>
+
+    <record id="website_slides_snippets.s_dynamic_slides_options" model="ir.asset">
+        <field name="name">Dynamic Slides Options</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_slides_snippets/static/src/snippets/s_dynamic_slides/options.js</field>
+    </record>
+
+    <record id="website_slides_snippets.s_dynamic_slides_000_scss" model="ir.asset">
+        <field name="name">Dynamic Slides 000 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_slides_snippets/static/src/snippets/s_dynamic_slides/000.scss</field>
+    </record>
+</odoo>

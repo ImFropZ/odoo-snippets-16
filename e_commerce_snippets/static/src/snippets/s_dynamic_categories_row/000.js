@@ -15,7 +15,7 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      *
      * @private
      */
-    _getFilterDomain() {
+    _getFilterDomain: function () {
       const filterDomain = [];
 
       return filterDomain;
@@ -25,7 +25,7 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      *
      * @private
      */
-    _getDomain() {
+    _getDomain: function () {
       const domain = wUtils.websiteDomain(this);
 
       return domain;
@@ -35,7 +35,7 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      *
      * @private
      */
-    async _fetchData() {
+    _fetchData: async function () {
       data = await this._rpc({
         route: "/e_commerce/get_product_categories_row",
         params: {
