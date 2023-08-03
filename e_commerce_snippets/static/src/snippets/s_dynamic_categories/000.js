@@ -62,12 +62,25 @@ odoo.define("website.dynamic_snippet_categories", function (require) {
 
     /**
      *
+     * @private
+     */
+    _loading: function () {
+      this.el.querySelector(".dynamic_cateogories_container").innerHTML = `
+      <div class="spinner-box">
+        <div class="three-quarter-spinner"></div>
+      </div>
+      `;
+    },
+
+    /**
+     *
      * @override
      */
     willStart: function () {
-      return this._super
-        .apply(this, arguments)
-        .then(() => Promise.all([this._fetchData()]));
+      return this._super.apply(this, arguments).then(() => {
+        this._loading();
+        return Promise.all([this._fetchData()]);
+      });
     },
 
     /**

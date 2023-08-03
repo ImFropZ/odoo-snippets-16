@@ -1,7 +1,8 @@
 .dynamic_cateogories_container {
   display: flex;
-  overflow: auto;
   gap: 2rem;
+  width: 100%;
+  overflow-x: auto;
 
   & {
     scrollbar-width: thin;
@@ -29,32 +30,54 @@
     background-color: #555;
   }
 
-  div {
-    min-width: 6rem;
-    max-width: 8rem;
+  a {
+    text-decoration: none;
+    color: black;
   }
 
-  a {
-    color: black;
-    text-decoration: none;
+  &-item {
+    flex-shrink: 0;
+    width: 6rem;
 
-    .item {
-      position: relative;
-      width: 8.75rem;
-      flex-shrink: 0;
+    .category {
+      text-align: center;
+    }
 
-      .border {
-        padding: 0.2rem;
+    .item-image {
+      width: 100%;
 
-        img {
-          width: 100%;
-          aspect-ratio: 1 / 1;
-        }
-      }
-
-      .text {
-        text-align: center;
+      img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
       }
     }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.spinner-box {
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+
+  .three-quarter-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fb5b53;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.5s linear 0s infinite;
   }
 }

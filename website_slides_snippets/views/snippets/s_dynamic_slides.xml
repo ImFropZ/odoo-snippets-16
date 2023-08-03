@@ -3,12 +3,8 @@
     <template id="dynamic_slides_snippet" name="Dynamic Slides">
         <section class="container dynamic_snippet_slides">
             <div class="container">
-                <div id="dynamic_slides_container">
-                    <div class="text-center py-5">
-                        <h2 class="h1">Course From Website Slides</h2>
-                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
-                            publishing industries for <br />previewing layouts and visual mockups.</p>
-                    </div>
+                <div class="dynamic_slides_container">
+                    
                 </div>
             </div>
         </section>

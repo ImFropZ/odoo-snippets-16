@@ -21,6 +21,14 @@ PublicWidget.registry.DynamicSlides = PublicWidget.Widget.extend({
    *
    * @private
    */
+  _setContainer: function () {
+    this.containerEl = $(this.el).find(".dynamic_slides_container");
+  },
+
+  /**
+   *
+   * @private
+   */
   _getDomain: function () {
     const domain = wUtils.websiteDomain(this);
 
@@ -32,10 +40,26 @@ PublicWidget.registry.DynamicSlides = PublicWidget.Widget.extend({
    * @private
    */
   _render: async function () {
-    this.el.querySelector("#dynamic_slides_container").innerHTML = QWeb.render(
-      "website_slides_snippets.WebsiteSlides",
-      { slides: this.data }
-    );
+    if (this.data.length !== 0) {
+      this.containerEl.html(
+        QWeb.render("website_slides_snippets.WebsiteSlides", {
+          slides: this.data,
+        })
+      );
+    } else {
+      this.containerEl.html(`<h1 style="margin:1rem auto;">No results found</h1>`);
+    }
+  },
+
+  /**
+   *
+   * @private
+   */
+  _loading: function () {
+    this.containerEl.html(`
+    <div class="spinner-box">
+      <div class="three-quarter-spinner"></div>
+    </div>`);
   },
 
   /**
@@ -57,9 +81,11 @@ PublicWidget.registry.DynamicSlides = PublicWidget.Widget.extend({
    * @overwrite
    */
   willStart: function () {
-    return this._super
-      .apply(this, arguments)
-      .then(() => Promise.all([this._fetchData()]));
+    return this._super.apply(this, arguments).then(() => {
+      this._setContainer();
+      this._loading();
+      return Promise.all([this._fetchData()]);
+    });
   },
 
   /**

@@ -4,11 +4,7 @@
         <section class="container dynamic_snippet_categories" data-category-names="">
             <div class="container">
                 <div class="dynamic_cateogories_container">
-                    <div class="text-center py-5">
-                        <h2 class="h1">Categories From E-Commerce</h2>
-                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
-                            publishing industries for <br />previewing layouts and visual mockups.</p>
-                    </div>
+                    
                 </div>
             </div>
         </section>
