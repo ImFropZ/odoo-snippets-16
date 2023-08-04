@@ -88,6 +88,19 @@
           }
         }
 
+        &-details {
+          display: flex;
+          justify-content: space-between;
+
+          .btn-container {
+            display: flex;
+
+            .add-cart {
+              height: 3rem;
+            }
+          }
+        }
+
         &__name {
           font-size: 1rem;
         }

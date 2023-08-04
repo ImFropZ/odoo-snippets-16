@@ -53,23 +53,30 @@
     </t>
 
     <t t-name="e_commerce_snippets.ProductCard">
-        <a t-att-href="product.website_url">
-            <div class="dynamic-category-row-productCard">
-                <t t-if="product.image">
-                    <img t-attf-src="data:image/jpeg;base64,{{product.image}}" class="dynamic-category-row-productCard__image" t-att-alt="product.name"/>
-                </t>
-                <t t-else="">
-                    <img
+            <div class="dynamic-category-row-productCard" t-att-data-product-id="product.id">
+                <a t-att-href="product.website_url">
+                    <t t-if="product.image">
+                        <img t-attf-src="data:image/jpeg;base64,{{product.image}}" class="dynamic-category-row-productCard__image" t-att-alt="product.name"/>
+                    </t>
+                    <t t-else="">
+                        <img
                         src="https://dummyimage.com/200x200/f8f6f7/f8f6f7"
                         alt=""
                         class="dynamic-category-row-productCard__image"
-                    />
-                </t>
-                <h4 class="dynamic-category-row-productCard__name"><t t-esc="product.name"/></h4>
-                <div class="dynamic-category-row-productCard__price">
-                <span class="dynamic-category-row-currency">$</span><span class="dynamic-category-row-priceTag"><t t-esc="product.list_price"/></span>
+                        />
+                    </t>
+                </a>
+                <div class="dynamic-category-row-productCard-details">
+                    <div>
+                        <h4 class="dynamic-category-row-productCard__name"><t t-esc="product.name"/></h4>
+                        <div class="dynamic-category-row-productCard__price">
+                            <span class="dynamic-category-row-currency">$</span><span class="dynamic-category-row-priceTag"><t t-esc="product.list_price"/></span>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="add-cart btn btn-primary"><i class="fa fa-fw fa-shopping-cart"></i></button>
+                    </div>
                 </div>
             </div>
-        </a>
     </t>
 </template>

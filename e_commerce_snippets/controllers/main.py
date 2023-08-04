@@ -47,17 +47,23 @@ class ECommerceSnippets(http.Controller):
             response = []
 
             for category in categories:
-                product_obj = request.env['product.template'].search(
+                product_obj = request.env['product.product'].search(
                     [('public_categ_ids', 'in', [category['id']])], limit=15, order="id asc")
                 products = product_obj.read(
-                    ['name', 'list_price', 'image_1920', 'website_url'])
+                    ['id', 'name', 'list_price', 'image_1920', 'website_url'])
 
                 for product in products:
                     if product.get('image_1920'):
                         product['image'] = product.get('image_1920')
                         product.pop('image_1920', None)
                     else:
-                        category['image'] = False
+                        product['image'] = False
+
+                    product_variants = request.env['product.product'].search(
+                        [('id', '=', product.get("id"))]).product_template_variant_value_ids
+
+                    for variant in product_variants:
+                        product["name"] += " " + variant["name"]
 
                 response.append({
                     'category_id': category['id'],

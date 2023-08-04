@@ -2,15 +2,22 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
   const publicWidget = require("web.public.widget");
   const wUtils = require("website.utils");
   const core = require("web.core");
+  const wSaleUtils = require("website_sale.utils");
 
   const QWeb = core.qweb;
 
-  DynamicCategoriesRow = publicWidget.Widget.extend({
+  const DynamicCategoriesRow = publicWidget.Widget.extend({
     selector: ".dynamic_snippet_categories_row",
     read_events: {
       "click [data-scroll-right]": "_onScrollRight",
       "click [data-scroll-left]": "_onScrollLeft",
+      "click .add-cart": "_onAddToCart",
     },
+
+    start() {
+      this.add2cartRerender = this.el.dataset.add2cartRerender === "True";
+    },
+
     /**
      *
      * @private
@@ -119,11 +126,40 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      * @private
      */
     _onScrollLeft: function (e) {
-      const container = $(e.currentTarget).siblings(
+      const container = $(e.currentTarget).closest(
         ".dynamic-category-row-productsContainer"
       );
       const nextSectionOffset = container.scrollLeft() - container.width();
       container.animate({ scrollLeft: nextSectionOffset }, "slow");
+    },
+
+    /**
+     *
+     * @private
+     */
+    _onAddToCart: async function (e) {
+      const card = $(e.currentTarget).closest(
+        ".dynamic-category-row-productCard"
+      );
+
+      const productId = card.data("product-id");
+
+      const data = await this._rpc({
+        route: "/shop/cart/update_json",
+        params: {
+          product_id: productId,
+          add_qty: 1,
+        },
+      });
+
+      const $navButton = $("header .o_wsale_my_cart").first();
+      await wSaleUtils.animateClone($navButton, card, 25, 40);
+      wSaleUtils.updateCartNavBar(data);
+      if (this.add2cartRerender) {
+        this.trigger_up("widgets_start_request", {
+          $target: this.$el.closest(".dynamic_snippet_categories_row"),
+        });
+      }
     },
 
     /**
