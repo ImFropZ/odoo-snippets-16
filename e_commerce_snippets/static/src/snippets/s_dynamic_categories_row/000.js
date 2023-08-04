@@ -31,6 +31,10 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
       return domain;
     },
 
+    _setContainer: function () {
+      this.containerEl = $(this.el).find(".dynamic_cateogories_row_container");
+    },
+
     /**
      *
      * @private
@@ -50,10 +54,17 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      * @private
      */
     _render: function () {
-      this.el.querySelector(".dynamic_cateogories_row_container").innerHTML =
-        QWeb.render("e_commerce_snippets.CategoryRow", {
-          categoryRows: this.data,
-        });
+      if (this.data.length !== 0) {
+        this.containerEl.html(
+          QWeb.render("e_commerce_snippets.CategoryRow", {
+            categoryRows: this.data,
+          })
+        );
+      } else {
+        this.containerEl.html(
+          `<h1 style="margin:1rem auto;">No results found</h1>`
+        );
+      }
     },
 
     /**
@@ -74,6 +85,7 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      */
     willStart: function () {
       return this._super.apply(this, arguments).then(() => {
+        this._setContainer();
         this._loading();
         return Promise.all([this._fetchData()]);
       });
