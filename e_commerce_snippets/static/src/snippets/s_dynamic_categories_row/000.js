@@ -25,6 +25,14 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
     _getFilterDomain: function () {
       const filterDomain = [];
 
+      this.el.dataset.categoryNames
+        .split(",")
+        .filter((val) => val !== "")
+        .forEach((val) => {
+          val = val.trim();
+          filterDomain.push(["name", "not ilike", val]);
+        });
+
       return filterDomain;
     },
 
@@ -126,7 +134,7 @@ odoo.define("website.dynamic_snippet_categories_row", function (require) {
      * @private
      */
     _onScrollLeft: function (e) {
-      const container = $(e.currentTarget).closest(
+      const container = $(e.currentTarget).siblings(
         ".dynamic-category-row-productsContainer"
       );
       const nextSectionOffset = container.scrollLeft() - container.width();

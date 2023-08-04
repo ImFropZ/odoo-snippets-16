@@ -10,6 +10,21 @@
         </section>
     </template>
 
+    <template id="dynamic_categories_row_snippet_options" inherit_id="website.snippet_options"
+        name="Dynamic Categories Row Snippet Options">
+        <xpath expr="." position="inside">
+            <div data-js="DynamicCategoriesRowOptions" data-selector=".dynamic_snippet_categories_row"
+                data-no-preview="true">
+                <we-input string="Filter out category names" class="o_we_large"
+                    data-name="category_names_opt"
+                    data-attribute-name="categoryNames" data-no-preview="true"
+                    data-select-data-attribute=""
+                    placeholder="e.g. desk, boxes"
+                    title="Comma-separated list of parts of category names" />
+            </div>
+        </xpath>
+    </template>
+
     <record id="e_commerce_snippets.s_dynamic_categories_row_000_js" model="ir.asset">
         <field name="name">Dynamic Categories Row 000 JS</field>
         <field name="bundle">web.assets_frontend</field>
