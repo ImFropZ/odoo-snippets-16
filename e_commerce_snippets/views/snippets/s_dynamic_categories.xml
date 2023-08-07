@@ -42,10 +42,4 @@
         <field name="bundle">web.assets_frontend</field>
         <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories/000.scss</field>
     </record>
-
-    <record id="e_commerce_snippets.s_dynamic_categories_options" model="ir.asset">
-        <field name="name">Dynamic Categories Options</field>
-        <field name="bundle">web.assets_frontend</field>
-        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories/options.js</field>
-    </record>
 </odoo>

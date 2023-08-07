@@ -36,10 +36,4 @@
         <field name="bundle">web.assets_frontend</field>
         <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories_row/000.scss</field>
     </record>
-
-    <record id="e_commerce_snippets.s_dynamic_categories_row_options" model="ir.asset">
-        <field name="name">Dynamic Categories Row Options</field>
-        <field name="bundle">web.assets_frontend</field>
-        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_categories_row/options.js</field>
-    </record>
 </odoo>

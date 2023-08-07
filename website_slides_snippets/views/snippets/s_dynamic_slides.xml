@@ -15,13 +15,7 @@
         <field name="bundle">web.assets_frontend</field>
         <field name="path">website_slides_snippets/static/src/snippets/s_dynamic_slides/000.js</field>
     </record>
-
-    <record id="website_slides_snippets.s_dynamic_slides_options" model="ir.asset">
-        <field name="name">Dynamic Slides Options</field>
-        <field name="bundle">web.assets_frontend</field>
-        <field name="path">website_slides_snippets/static/src/snippets/s_dynamic_slides/options.js</field>
-    </record>
-
+    
     <record id="website_slides_snippets.s_dynamic_slides_000_scss" model="ir.asset">
         <field name="name">Dynamic Slides 000 SCSS</field>
         <field name="bundle">web.assets_frontend</field>
